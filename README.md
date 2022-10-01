@@ -46,4 +46,11 @@
    ⚡ Para rodar projeto projeto<br>
 
     robot -d ./logs -v BROWSER:firefox tests/
-    ./run.sh
+
+    ou
+
+    robot -d ./logs -v BROWSER:chromium tests/
+
+    ou
+
+    robot -d ./logs -v BROWSER:webkit tests/
