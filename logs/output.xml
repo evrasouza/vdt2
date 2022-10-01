@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.9.5 on win32)" generated="20220930 20:35:40.250" rpa="false" schemaversion="3">
+<suite id="s1" name="Tests" source="C:\qaacademy\vdt2\trade-sticker\tests">
+<suite id="s1-s1" name="Login" source="C:\qaacademy\vdt2\trade-sticker\tests\login.robot">
+<test id="s1-s1-t1" name="Deve validar o slogan da home page" line="10">
+<kw name="Start Test" library="main" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>headless=False</arg>
+<arg>browser=${BROWSER}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20220930 20:35:40.956" level="INFO">{"browser": "firefox", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\c0f45e80-0317-4af7-b0ef-f79fc7c1192f"}</msg>
+<msg timestamp="20220930 20:35:42.411" level="INFO">Successfully created browser with options: {"browser":"firefox","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\c0f45e80-0317-4af7-b0ef-f79fc7c1192f"}</msg>
+<status status="PASS" starttime="20220930 20:35:40.955" endtime="20220930 20:35:42.411"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:40.955" endtime="20220930 20:35:42.412"/>
+</kw>
+<kw name="Go To Login Page" library="login">
+<kw name="New Page" library="Browser">
+<arg>https://trade-sticker-dev.vercel.app/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20220930 20:35:43.979" level="INFO">Successfully initialized new page object and opened url: https://trade-sticker-dev.vercel.app/</msg>
+<msg timestamp="20220930 20:35:43.979" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20220930 20:35:42.412" endtime="20220930 20:35:43.979"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:42.412" endtime="20220930 20:35:43.980"/>
+</kw>
+<kw name="Submit Credentials" library="login">
+<arg>papito@gmail.com</arg>
+<arg>vaibrasil</arg>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name=email]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220930 20:35:43.981" level="INFO">Fills the text 'papito@gmail.com' in the given field.</msg>
+<status status="PASS" starttime="20220930 20:35:43.980" endtime="20220930 20:35:44.033"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name=password]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220930 20:35:44.033" level="INFO">Fills the text 'vaibrasil' in the given field.</msg>
+<status status="PASS" starttime="20220930 20:35:44.033" endtime="20220930 20:35:44.053"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220930 20:35:44.053" endtime="20220930 20:35:44.112"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:43.980" endtime="20220930 20:35:44.112"/>
+</kw>
+<kw name="User Logged In" library="dash">
+<kw name="Set Variable" library="BuiltIn">
+<var>${header_title}</var>
+<arg>Aquela figurinha incrível a um clique de distância.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220930 20:35:44.113" level="INFO">${header_title} = Aquela figurinha incrível a um clique de distância.</msg>
+<status status="PASS" starttime="20220930 20:35:44.113" endtime="20220930 20:35:44.113"/>
+</kw>
+<kw name="Get Text" library="Browser">
+<arg>css=.header-content strong</arg>
+<arg>equal</arg>
+<arg>${header_title}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220930 20:35:44.113" endtime="20220930 20:35:44.148"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:44.113" endtime="20220930 20:35:44.148"/>
+</kw>
+<kw name="Finish Test" library="main" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220930 20:35:45.163" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220930 20:35:44.149" endtime="20220930 20:35:45.163"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20220930 20:35:45.256" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220930 20:35:45.164" endtime="20220930 20:35:45.256"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:44.148" endtime="20220930 20:35:45.256"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:40.953" endtime="20220930 20:35:45.256"/>
+</test>
+<test id="s1-s1-t2" name="Não deve logar com senha incorreta" line="15">
+<kw name="Start Test" library="main" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>headless=False</arg>
+<arg>browser=${BROWSER}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20220930 20:35:45.292" level="INFO">{"browser": "firefox", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\86650d8d-c320-4706-801a-2915e2fb1c8d"}</msg>
+<msg timestamp="20220930 20:35:46.506" level="INFO">Successfully created browser with options: {"browser":"firefox","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\86650d8d-c320-4706-801a-2915e2fb1c8d"}</msg>
+<status status="PASS" starttime="20220930 20:35:45.291" endtime="20220930 20:35:46.506"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:45.291" endtime="20220930 20:35:46.506"/>
+</kw>
+<kw name="Go To Login Page" library="login">
+<kw name="New Page" library="Browser">
+<arg>https://trade-sticker-dev.vercel.app/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20220930 20:35:47.844" level="INFO">Successfully initialized new page object and opened url: https://trade-sticker-dev.vercel.app/</msg>
+<msg timestamp="20220930 20:35:47.844" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20220930 20:35:46.507" endtime="20220930 20:35:47.844"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:46.507" endtime="20220930 20:35:47.845"/>
+</kw>
+<kw name="Submit Credentials" library="login">
+<arg>papito@gmail.com</arg>
+<arg>abc123</arg>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name=email]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220930 20:35:47.846" level="INFO">Fills the text 'papito@gmail.com' in the given field.</msg>
+<status status="PASS" starttime="20220930 20:35:47.845" endtime="20220930 20:35:47.897"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name=password]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220930 20:35:47.897" level="INFO">Fills the text 'abc123' in the given field.</msg>
+<status status="PASS" starttime="20220930 20:35:47.897" endtime="20220930 20:35:47.913"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220930 20:35:47.913" endtime="20220930 20:35:47.958"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:47.845" endtime="20220930 20:35:47.958"/>
+</kw>
+<kw name="Toast Message Should Be" library="login">
+<arg>Credenciais inválidas, tente novamente!</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${locator}</var>
+<arg>css=.Toastify__toast-body div &gt;&gt; text=${expected_message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220930 20:35:47.959" level="INFO">${locator} = css=.Toastify__toast-body div &gt;&gt; text=Credenciais inválidas, tente novamente!</msg>
+<status status="PASS" starttime="20220930 20:35:47.959" endtime="20220930 20:35:47.959"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>1</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20220930 20:35:47.969" level="INFO">Waited for Element with selector css=.Toastify__toast-body div &gt;&gt; text=Credenciais inválidas, tente novamente! at state visible</msg>
+<status status="PASS" starttime="20220930 20:35:47.959" endtime="20220930 20:35:47.969"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:47.958" endtime="20220930 20:35:47.969"/>
+</kw>
+<kw name="Finish Test" library="main" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220930 20:35:48.982" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220930 20:35:47.969" endtime="20220930 20:35:48.982"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20220930 20:35:49.130" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-2.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220930 20:35:48.983" endtime="20220930 20:35:49.130"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:47.969" endtime="20220930 20:35:49.130"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:45.287" endtime="20220930 20:35:49.130"/>
+</test>
+<test id="s1-s1-t3" name="Required Password" line="21">
+<kw name="Start Test" library="main" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>headless=False</arg>
+<arg>browser=${BROWSER}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20220930 20:35:49.165" level="INFO">{"browser": "firefox", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\6702eb20-bc47-4597-83b3-16413dc62171"}</msg>
+<msg timestamp="20220930 20:35:50.365" level="INFO">Successfully created browser with options: {"browser":"firefox","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\6702eb20-bc47-4597-83b3-16413dc62171"}</msg>
+<status status="PASS" starttime="20220930 20:35:49.164" endtime="20220930 20:35:50.365"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:49.163" endtime="20220930 20:35:50.365"/>
+</kw>
+<kw name="Go To Login Page" library="login">
+<kw name="New Page" library="Browser">
+<arg>https://trade-sticker-dev.vercel.app/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20220930 20:35:51.704" level="INFO">Successfully initialized new page object and opened url: https://trade-sticker-dev.vercel.app/</msg>
+<msg timestamp="20220930 20:35:51.704" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20220930 20:35:50.366" endtime="20220930 20:35:51.704"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:50.365" endtime="20220930 20:35:51.704"/>
+</kw>
+<kw name="Submit Credentials" library="login">
+<arg>papito@gmail.com</arg>
+<arg>${EMPTY}</arg>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name=email]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220930 20:35:51.705" level="INFO">Fills the text 'papito@gmail.com' in the given field.</msg>
+<status status="PASS" starttime="20220930 20:35:51.705" endtime="20220930 20:35:51.759"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name=password]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220930 20:35:51.759" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20220930 20:35:51.759" endtime="20220930 20:35:51.778"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220930 20:35:51.778" endtime="20220930 20:35:51.829"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:51.705" endtime="20220930 20:35:51.829"/>
+</kw>
+<kw name="Toast Message Should Be" library="login">
+<arg>Por favor, informe a sua senha secreta!</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${locator}</var>
+<arg>css=.Toastify__toast-body div &gt;&gt; text=${expected_message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220930 20:35:51.831" level="INFO">${locator} = css=.Toastify__toast-body div &gt;&gt; text=Por favor, informe a sua senha secreta!</msg>
+<status status="PASS" starttime="20220930 20:35:51.830" endtime="20220930 20:35:51.831"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>1</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20220930 20:35:51.841" level="INFO">Waited for Element with selector css=.Toastify__toast-body div &gt;&gt; text=Por favor, informe a sua senha secreta! at state visible</msg>
+<status status="PASS" starttime="20220930 20:35:51.831" endtime="20220930 20:35:51.841"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:51.830" endtime="20220930 20:35:51.841"/>
+</kw>
+<kw name="Finish Test" library="main" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220930 20:35:52.855" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220930 20:35:51.842" endtime="20220930 20:35:52.855"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20220930 20:35:52.984" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-3.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220930 20:35:52.856" endtime="20220930 20:35:52.984"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:51.842" endtime="20220930 20:35:52.985"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:49.159" endtime="20220930 20:35:52.985"/>
+</test>
+<test id="s1-s1-t4" name="Required Email" line="27">
+<kw name="Start Test" library="main" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>headless=False</arg>
+<arg>browser=${BROWSER}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20220930 20:35:53.022" level="INFO">{"browser": "firefox", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\a0d406b0-ba96-48c4-ad26-5c199d36bf6c"}</msg>
+<msg timestamp="20220930 20:35:54.347" level="INFO">Successfully created browser with options: {"browser":"firefox","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\a0d406b0-ba96-48c4-ad26-5c199d36bf6c"}</msg>
+<status status="PASS" starttime="20220930 20:35:53.021" endtime="20220930 20:35:54.347"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:53.020" endtime="20220930 20:35:54.347"/>
+</kw>
+<kw name="Go To Login Page" library="login">
+<kw name="New Page" library="Browser">
+<arg>https://trade-sticker-dev.vercel.app/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20220930 20:35:55.858" level="INFO">Successfully initialized new page object and opened url: https://trade-sticker-dev.vercel.app/</msg>
+<msg timestamp="20220930 20:35:55.859" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20220930 20:35:54.348" endtime="20220930 20:35:55.859"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:54.348" endtime="20220930 20:35:55.859"/>
+</kw>
+<kw name="Submit Credentials" library="login">
+<arg>${EMPTY}</arg>
+<arg>abc123</arg>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name=email]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220930 20:35:55.860" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20220930 20:35:55.860" endtime="20220930 20:35:55.911"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name=password]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220930 20:35:55.911" level="INFO">Fills the text 'abc123' in the given field.</msg>
+<status status="PASS" starttime="20220930 20:35:55.911" endtime="20220930 20:35:55.928"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220930 20:35:55.928" endtime="20220930 20:35:56.012"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:55.859" endtime="20220930 20:35:56.013"/>
+</kw>
+<kw name="Toast Message Should Be" library="login">
+<arg>Por favor, informe o seu email!</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${locator}</var>
+<arg>css=.Toastify__toast-body div &gt;&gt; text=${expected_message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220930 20:35:56.013" level="INFO">${locator} = css=.Toastify__toast-body div &gt;&gt; text=Por favor, informe o seu email!</msg>
+<status status="PASS" starttime="20220930 20:35:56.013" endtime="20220930 20:35:56.013"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>1</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20220930 20:35:56.026" level="INFO">Waited for Element with selector css=.Toastify__toast-body div &gt;&gt; text=Por favor, informe o seu email! at state visible</msg>
+<status status="PASS" starttime="20220930 20:35:56.014" endtime="20220930 20:35:56.026"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:56.013" endtime="20220930 20:35:56.026"/>
+</kw>
+<kw name="Finish Test" library="main" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220930 20:35:57.037" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220930 20:35:56.027" endtime="20220930 20:35:57.037"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20220930 20:35:57.187" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-4.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220930 20:35:57.038" endtime="20220930 20:35:57.187"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:56.027" endtime="20220930 20:35:57.187"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:53.013" endtime="20220930 20:35:57.187"/>
+</test>
+<test id="s1-s1-t5" name="Required Fields" line="33">
+<kw name="Start Test" library="main" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>headless=False</arg>
+<arg>browser=${BROWSER}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20220930 20:35:57.224" level="INFO">{"browser": "firefox", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\9b02efa5-cc93-4eaa-b78a-e395e7dc8ad9"}</msg>
+<msg timestamp="20220930 20:35:58.539" level="INFO">Successfully created browser with options: {"browser":"firefox","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\9b02efa5-cc93-4eaa-b78a-e395e7dc8ad9"}</msg>
+<status status="PASS" starttime="20220930 20:35:57.222" endtime="20220930 20:35:58.540"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:57.221" endtime="20220930 20:35:58.540"/>
+</kw>
+<kw name="Go To Login Page" library="login">
+<kw name="New Page" library="Browser">
+<arg>https://trade-sticker-dev.vercel.app/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20220930 20:35:59.928" level="INFO">Successfully initialized new page object and opened url: https://trade-sticker-dev.vercel.app/</msg>
+<msg timestamp="20220930 20:35:59.928" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20220930 20:35:58.540" endtime="20220930 20:35:59.928"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:58.540" endtime="20220930 20:35:59.928"/>
+</kw>
+<kw name="Submit Credentials" library="login">
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name=email]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220930 20:35:59.930" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20220930 20:35:59.930" endtime="20220930 20:35:59.982"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name=password]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220930 20:35:59.983" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20220930 20:35:59.982" endtime="20220930 20:36:00.000"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220930 20:36:00.000" endtime="20220930 20:36:00.052"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:59.929" endtime="20220930 20:36:00.052"/>
+</kw>
+<kw name="Toast Message Should Be" library="login">
+<arg>Por favor, informe suas credenciais!</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${locator}</var>
+<arg>css=.Toastify__toast-body div &gt;&gt; text=${expected_message}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220930 20:36:00.053" level="INFO">${locator} = css=.Toastify__toast-body div &gt;&gt; text=Por favor, informe suas credenciais!</msg>
+<status status="PASS" starttime="20220930 20:36:00.052" endtime="20220930 20:36:00.053"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>1</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20220930 20:36:00.064" level="INFO">Waited for Element with selector css=.Toastify__toast-body div &gt;&gt; text=Por favor, informe suas credenciais! at state visible</msg>
+<status status="PASS" starttime="20220930 20:36:00.053" endtime="20220930 20:36:00.064"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:00.052" endtime="20220930 20:36:00.064"/>
+</kw>
+<kw name="Finish Test" library="main" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220930 20:36:01.076" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220930 20:36:00.065" endtime="20220930 20:36:01.076"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20220930 20:36:01.225" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-5.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220930 20:36:01.077" endtime="20220930 20:36:01.225"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:00.065" endtime="20220930 20:36:01.225"/>
+</kw>
+<status status="PASS" starttime="20220930 20:35:57.216" endtime="20220930 20:36:01.226"/>
+</test>
+<doc>Login Tests</doc>
+<status status="PASS" starttime="20220930 20:35:40.268" endtime="20220930 20:36:01.252"/>
+</suite>
+<suite id="s1-s2" name="Slogan" source="C:\qaacademy\vdt2\trade-sticker\tests\slogan.robot">
+<test id="s1-s2-t1" name="Deve validar o slogan da home page" line="8">
+<kw name="New Browser" library="Browser">
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20220930 20:36:01.273" level="INFO">{"browser": "chromium", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\56454bf4-9d88-42e8-b104-e3948c923017"}</msg>
+<msg timestamp="20220930 20:36:01.549" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\56454bf4-9d88-42e8-b104-e3948c923017"}</msg>
+<status status="PASS" starttime="20220930 20:36:01.272" endtime="20220930 20:36:01.550"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>https://trade-sticker-dev.vercel.app/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20220930 20:36:02.048" level="INFO">Successfully initialized new page object and opened url: https://trade-sticker-dev.vercel.app/</msg>
+<msg timestamp="20220930 20:36:02.048" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20220930 20:36:01.550" endtime="20220930 20:36:02.048"/>
+</kw>
+<kw name="Get Text" library="Browser">
+<arg>.logo-container h2</arg>
+<arg>contains</arg>
+<arg>${slogan}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220930 20:36:02.049" endtime="20220930 20:36:02.104"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20220930 20:36:02.645" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-6.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220930 20:36:02.105" endtime="20220930 20:36:02.645"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:01.267" endtime="20220930 20:36:02.646"/>
+</test>
+<status status="PASS" starttime="20220930 20:36:01.257" endtime="20220930 20:36:02.687"/>
+</suite>
+<suite id="s1-s3" name="Trade" source="C:\qaacademy\vdt2\trade-sticker\tests\trade.robot">
+<test id="s1-s3-t1" name="Deve negociar a figurinha Neymar Legend" line="10">
+<kw name="Start Test" library="main" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>headless=False</arg>
+<arg>browser=${BROWSER}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20220930 20:36:02.700" level="INFO">{"browser": "firefox", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\a122b07d-c594-4ad7-bec5-68f0b81ad9e9"}</msg>
+<msg timestamp="20220930 20:36:04.058" level="INFO">Successfully created browser with options: {"browser":"firefox","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\qaacademy\\vdt2\\trade-sticker\\logs\\browser\\traces\\a122b07d-c594-4ad7-bec5-68f0b81ad9e9"}</msg>
+<status status="PASS" starttime="20220930 20:36:02.700" endtime="20220930 20:36:04.058"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:02.700" endtime="20220930 20:36:04.058"/>
+</kw>
+<kw name="Do Login" library="main">
+<kw name="Go To Login Page" library="login">
+<kw name="New Page" library="Browser">
+<arg>https://trade-sticker-dev.vercel.app/</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20220930 20:36:05.464" level="INFO">Successfully initialized new page object and opened url: https://trade-sticker-dev.vercel.app/</msg>
+<msg timestamp="20220930 20:36:05.464" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20220930 20:36:04.059" endtime="20220930 20:36:05.464"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:04.059" endtime="20220930 20:36:05.464"/>
+</kw>
+<kw name="Submit Credentials" library="login">
+<arg>papito@gmail.com</arg>
+<arg>vaibrasil</arg>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name=email]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220930 20:36:05.465" level="INFO">Fills the text 'papito@gmail.com' in the given field.</msg>
+<status status="PASS" starttime="20220930 20:36:05.465" endtime="20220930 20:36:05.509"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name=password]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220930 20:36:05.509" level="INFO">Fills the text 'vaibrasil' in the given field.</msg>
+<status status="PASS" starttime="20220930 20:36:05.509" endtime="20220930 20:36:05.526"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220930 20:36:05.526" endtime="20220930 20:36:05.592"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:05.464" endtime="20220930 20:36:05.593"/>
+</kw>
+<kw name="User Logged In" library="dash">
+<kw name="Set Variable" library="BuiltIn">
+<var>${header_title}</var>
+<arg>Aquela figurinha incrível a um clique de distância.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220930 20:36:05.593" level="INFO">${header_title} = Aquela figurinha incrível a um clique de distância.</msg>
+<status status="PASS" starttime="20220930 20:36:05.593" endtime="20220930 20:36:05.593"/>
+</kw>
+<kw name="Get Text" library="Browser">
+<arg>css=.header-content strong</arg>
+<arg>equal</arg>
+<arg>${header_title}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220930 20:36:05.594" endtime="20220930 20:36:05.620"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:05.593" endtime="20220930 20:36:05.620"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:04.058" endtime="20220930 20:36:05.620"/>
+</kw>
+<kw name="Search User" library="dash">
+<arg>Legend</arg>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[placeholder^=Busque]</arg>
+<arg>${target}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20220930 20:36:05.621" level="INFO">Fills the text 'Legend' in the given field.</msg>
+<status status="PASS" starttime="20220930 20:36:05.620" endtime="20220930 20:36:05.638"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Buscar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220930 20:36:05.638" endtime="20220930 20:36:05.690"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:05.620" endtime="20220930 20:36:05.690"/>
+</kw>
+<kw name="Select sticker" library="dash">
+<arg>Neymar Jr</arg>
+<kw name="Click" library="Browser">
+<arg>xpath=//img[@alt="${name}"]/..</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220930 20:36:05.691" endtime="20220930 20:36:06.653"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:05.690" endtime="20220930 20:36:06.653"/>
+</kw>
+<kw name="Get In Touch" library="dash">
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Entrar em contato</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20220930 20:36:06.654" endtime="20220930 20:36:06.738"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:06.654" endtime="20220930 20:36:06.738"/>
+</kw>
+<kw name="Whatsapp Sticker Message" library="dash">
+<arg>Neymar Jr</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${expected_message}</var>
+<arg>Oi, achei o seu contato no Trade Sticker. Estou interessado(a) na figurinha do ${Sticker_name}, bora negociar?</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220930 20:36:06.740" level="INFO">${expected_message} = Oi, achei o seu contato no Trade Sticker. Estou interessado(a) na figurinha do Neymar Jr, bora negociar?</msg>
+<status status="PASS" starttime="20220930 20:36:06.739" endtime="20220930 20:36:06.740"/>
+</kw>
+<kw name="Switch Page" library="Browser">
+<arg>NEW</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Switches the active browser page to another open page by ``id`` or ``NEW``.</doc>
+<msg timestamp="20220930 20:36:07.217" level="INFO">Activated new page page=ddc9c73e-4688-4c24-9f9f-1292aa47e75e</msg>
+<status status="PASS" starttime="20220930 20:36:06.740" endtime="20220930 20:36:07.217"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=p &gt;&gt; text=${expected_message}</arg>
+<arg>visible</arg>
+<arg>5000</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20220930 20:36:07.378" level="INFO">Waited for Element with selector css=p &gt;&gt; text=Oi, achei o seu contato no Trade Sticker. Estou interessado(a) na figurinha do Neymar Jr, bora negociar? at state visible</msg>
+<status status="PASS" starttime="20220930 20:36:07.217" endtime="20220930 20:36:07.378"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:06.739" endtime="20220930 20:36:07.378"/>
+</kw>
+<kw name="Finish Test" library="main" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220930 20:36:08.387" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220930 20:36:07.379" endtime="20220930 20:36:08.387"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20220930 20:36:08.425" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-7.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220930 20:36:08.387" endtime="20220930 20:36:08.425"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:07.379" endtime="20220930 20:36:08.426"/>
+</kw>
+<status status="PASS" starttime="20220930 20:36:02.698" endtime="20220930 20:36:08.426"/>
+</test>
+<doc>Teste de negociação de figurinhas da copa</doc>
+<status status="PASS" starttime="20220930 20:36:02.691" endtime="20220930 20:36:08.458"/>
+</suite>
+<status status="PASS" starttime="20220930 20:35:40.251" endtime="20220930 20:36:08.463"/>
+</suite>
+<statistics>
+<total>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="7" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="5" fail="0" skip="0" id="s1-s1" name="Login">Tests.Login</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s2" name="Slogan">Tests.Slogan</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s3" name="Trade">Tests.Trade</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
