@@ -3,13 +3,18 @@ Documentation    Arquivo Principal do nosso projeto
 
 Library          Browser
 
-Resource        pages/login.resource
+Resource        actions/AuthActions.robot
 Resource        pages/dash.resource
+
 
 *** Keywords ***
 Do Login
+    ${user}        Create Dictionary        email=papito@gmail.com    password=vaibrasil
+
     Go To Login Page
-    Submit Credentials    papito@gmail.com    vaibrasil
+    Fill Credentials        ${user}
+    Submit Credentials
+
     User Logged In
 
 Start Test

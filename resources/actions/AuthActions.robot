@@ -1,16 +1,15 @@
 *** Settings ***
-Documentation        Authentication Actions
+Documentation    Login Page
 
-Resource   ../main.resource
+Library    Browser
 
 *** Variables ***
-${INPUT_EMAIL}    id=email
-${INPUT_PASS}     id=password
+${INPUT_EMAIL}    css=input[name=email]
+${INPUT_PASS}     css=input[name=password]
 
 *** Keywords ***
-Go to Login Page
-    Go To                      ${URL_BASE}
-    Wait For Elements State    css=.login-form        visible    5
+Go To Login Page
+    New Page        https://trade-sticker-dev.vercel.app/
 
 Fill Credentials        
     [Arguments]             ${user}
@@ -26,16 +25,12 @@ Fill Input Password
     Fill Text       ${INPUT_PASS}       ${user}[password]
 
 Submit Credentials
-    Click              css=.submit-button >> text=Entrar
+    Click              css=button >> text=Entrar
 
-User Should Be Logged In
-    [Arguments]        ${user}
+Toast Message Should Be
+    [Arguments]    ${expected_message}
+    ${locator}
+    ...            Set Variable
+    ...            css=.Toastify__toast-body div >> text=${expected_message}
 
-    ${element}              Set Variable    css=a[href="/profile"]
-    ${expected_fullname}    Set Variable    ${user}[name] ${user}[lastname]
-
-    Wait For Elements State    ${element}    visible    5
-    Get Text                   ${element}    equal      ${expected_fullname}
-
-Should Be Type Email
-    Get Property    ${INPUT_EMAIL}    type    equal    email
+    Wait For Elements State    ${locator}    visible    1
