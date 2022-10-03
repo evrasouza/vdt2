@@ -54,3 +54,13 @@
     ou
 
     robot -d ./logs -v BROWSER:webkit tests/
+    
+   ⚡ Resolução desafio QAcademy<br>
+
+    opção 1: https://github.com/evrasouza/vdt2/tree/main
+
+    ou
+
+    opção 2: https://github.com/evrasouza/vdt2/tree/DesafioResolucaoDois
+    
+    
